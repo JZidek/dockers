@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dock-test
+  labels:
+    app: doctest
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: doctest
+  template:
+    metadata:
+      labels:
+        app: doctest
+    spec:
+      containers:
+        - name: docker-test-cont
+          image: docker-test
+          ports:
+          - containerPort: 80
+
+
